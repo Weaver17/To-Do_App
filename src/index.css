@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+h1 {
+  top: 13.5%;
+}
+
+.submit-btn {
+  background-color: #5e1b8f;
+}
+
+.submit-btn:hover {
+  background-color: #330852;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-height: 1090px) {
+  h1 {
+    top: 7.5%;
+  }
+}
+
+@media (max-height: 1030px) {
+  h1 {
+    top: 6%;
+  }
+}
+
+@media (max-height: 950px) {
+  h1 {
+    top: 5%;
+  }
+}
+
+@media (max-height: 916px) {
+  h1 {
+    top: 3.5%;
+  }
+}
+
+@media (max-height: 883px) {
+  h1 {
+    top: 2.5%;
+  }
+}
+
+@media (max-height: 850px) {
+  h1 {
+    top: 0%;
+  }
+}
+@media (max-height: 800px) {
+  h1 {
+    top: -3%;
+  }
+}
