@@ -1,7 +1,14 @@
-import React from "react";
+function DeleteBtn({ setTodos, todo }) {
+  const handleDeleteClick = (e) => {
+    e.stopPropagation();
+    setTodos((prev) => prev.filter((t) => t.id !== todo.id));
+  };
 
-function DeleteBtn() {
-  return <button className="cursor-pointer">❌</button>;
+  return (
+    <button onClick={handleDeleteClick} className="cursor-pointer">
+      ❌
+    </button>
+  );
 }
 
 export default DeleteBtn;
