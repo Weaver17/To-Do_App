@@ -1,8 +1,11 @@
-function Counter({ todos }) {
+import useTodosContext from "../hooks/useTodosContext";
+
+function Counter() {
+  const { todoListLength, completedTodosLength } = useTodosContext();
+
   return (
     <p>
-      <b>{todos.filter((todo) => todo.isCompleted).length}</b> / {todos.length}{" "}
-      todos completed
+      <b>{completedTodosLength}</b> / {todoListLength} todos completed
     </p>
   );
 }

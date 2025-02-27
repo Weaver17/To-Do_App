@@ -1,4 +1,9 @@
-function Button({ children, buttonType }) {
+type ButtonProps = {
+  buttonType?: "primary" | "secondary";
+  children: React.ReactNode;
+};
+
+function Button({ children, buttonType }: ButtonProps) {
   return (
     <button
       className={` submit-btn h-[45px]  w-full text-white rounded-[5px] cursor-pointer ${

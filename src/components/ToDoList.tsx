@@ -1,17 +1,8 @@
 import DeleteBtn from "./DeleteBtn";
+import useTodosContext from "../hooks/useTodosContext";
 
-function ToDoList({ todos, setTodos }) {
-  // const handleClick = () => {
-  //   setTodos(
-  //     todos.map((t) => {
-  //       if (t.id === todo.id) {
-  //         return { ...t, isCompleted: !t?.isCompleted };
-  //       }
-
-  //       return t;
-  //     })
-  //   );
-  // };
+function ToDoList() {
+  const { todos, handleDeleteTodo, handleToggleTodo } = useTodosContext();
 
   return (
     <>
@@ -23,15 +14,7 @@ function ToDoList({ todos, setTodos }) {
             <li
               key={todo?.id}
               onClick={() => {
-                setTodos(
-                  todos.map((t) => {
-                    if (t.id === todo.id) {
-                      return { ...t, isCompleted: !t?.isCompleted };
-                    }
-
-                    return t;
-                  })
-                );
+                handleToggleTodo(todo.id);
               }}
               className="flex justify-between items-center px-8 h-[50px] text-[14px] cursor-pointer border-b border-black/[8%] "
             >
@@ -45,7 +28,7 @@ function ToDoList({ todos, setTodos }) {
               >
                 {todo?.text}
               </span>
-              <DeleteBtn setTodos={setTodos} todo={todo} />{" "}
+              <DeleteBtn onDeleteTodo={handleDeleteTodo} id={todo.id} />{" "}
             </li>
           ))}
         </ul>

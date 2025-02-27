@@ -1,7 +1,12 @@
-function DeleteBtn({ setTodos, todo }) {
+type DeleteBtnProps = {
+  onDeleteTodo: (id: number) => void;
+  id: number;
+};
+
+function DeleteBtn({ onDeleteTodo, id }: DeleteBtnProps) {
   const handleDeleteClick = (e) => {
     e.stopPropagation();
-    setTodos((prev) => prev.filter((t) => t.id !== todo.id));
+    onDeleteTodo(id);
   };
 
   return (

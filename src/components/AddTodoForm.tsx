@@ -1,8 +1,11 @@
-import { useState } from "react";
 import Button from "./Button";
+import useTodosContext from "../hooks/useTodosContext";
+import { useState } from "react";
 
-function AddTodoForm({ todos, setTodos }) {
+function AddTodoForm() {
   const [value, setValue] = useState("");
+
+  const { handleAddTodo } = useTodosContext();
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -10,14 +13,7 @@ function AddTodoForm({ todos, setTodos }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTodos((prev) => [
-      ...prev,
-      {
-        id: prev.length + 1,
-        text: value,
-        isCompleted: false,
-      },
-    ]);
+    handleAddTodo(value);
     setValue("");
   };
 
