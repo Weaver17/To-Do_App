@@ -1,17 +1,17 @@
 import Button from "./Button";
 import useTodosContext from "../hooks/useTodosContext";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 
 function AddTodoForm() {
   const [value, setValue] = useState("");
 
   const { handleAddTodo } = useTodosContext();
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     handleAddTodo(value);
     setValue("");

@@ -4,7 +4,7 @@ type DeleteBtnProps = {
 };
 
 function DeleteBtn({ onDeleteTodo, id }: DeleteBtnProps) {
-  const handleDeleteClick = (e) => {
+  const handleDeleteClick = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
     onDeleteTodo(id);
   };
